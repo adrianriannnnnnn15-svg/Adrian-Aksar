@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semangat Ibadah 🌿</title>
+
+  <style>
+    /* =========================
+       STYLE DASAR HALAMAN
+    ========================== */
+    body{
+      margin:0;
+      padding:0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #dff7e2, #b7e4c7);
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      overflow:hidden;
+    }
+
+    /* Kotak utama */
+    .container{
+      background:white;
+      width:90%;
+      max-width:500px;
+      padding:30px;
+      border-radius:25px;
+      text-align:center;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+      position:relative;
+    }
+
+    /* Judul */
+    h1{
+      color:#2d6a4f;
+      margin-bottom:10px;
+    }
+
+    /* Paragraf */
+    p{
+      color:#40916c;
+      font-size:18px;
+    }
+
+    /* Stiker / emoji */
+    .stickers{
+      font-size:45px;
+      margin:15px 0;
+      animation: float 2s infinite ease-in-out;
+    }
+
+    /* Animasi stiker */
+    @keyframes float{
+      0%{
+        transform: translateY(0px);
+      }
+      50%{
+        transform: translateY(-10px);
+      }
+      100%{
+        transform: translateY(0px);
+      }
+    }
+
+    /* Area tombol */
+    .buttons{
+      margin-top:30px;
+      position:relative;
+      height:120px;
+    }
+
+    /* Style tombol umum */
+    button{
+      padding:12px 25px;
+      border:none;
+      border-radius:15px;
+      cursor:pointer;
+      font-size:18px;
+      transition:0.3s;
+      position:absolute;
+    }
+
+    /* Tombol Mau */
+    #yesBtn{
+      background:#52b788;
+      color:white;
+      left:90px;
+    }
+
+    #yesBtn:hover{
+      background:#40916c;
+      transform:scale(1.05);
+    }
+
+    /* Tombol Tidak */
+    #noBtn{
+      background:#ff8fa3;
+      color:white;
+      right:90px;
+    }
+
+    /* Pesan hasil */
+    #message{
+      margin-top:25px;
+      font-size:20px;
+      color:#1b4332;
+      font-weight:bold;
+      min-height:50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- Judul -->
+    <h1>🌿 Ayo Rajin Beribadah 🌿</h1>
+
+    <!-- Deskripsi -->
+    <p>
+      Mau jadi pribadi yang lebih rajin beribadah dan lebih dekat kepada Tuhan?
+    </p>
+
+    <!-- Stiker -->
+    <div class="stickers">
+      🕌 📖 🤲 🌙 💚
+    </div>
+
+    <!-- Tombol pilihan -->
+    <div class="buttons">
+      <button id="yesBtn">Mau 😊</button>
+      <button id="noBtn">Tidak 😅</button>
+    </div>
+
+    <!-- Tempat pesan -->
+    <div id="message"></div>
+
+  </div>
+
+  <script>
+    // =========================
+    // MENGAMBIL ELEMENT
+    // =========================
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+
+    // =========================
+    // EVENT TOMBOL "MAU"
+    // =========================
+    yesBtn.addEventListener("click", function(){
+
+      // Menampilkan pesan positif
+      message.innerHTML = `
+        🌟 MasyaAllah! 🌟 <br>
+        Semoga kamu selalu diberi semangat untuk beribadah,
+        hati yang tenang, dan hidup yang penuh berkah 💚
+      `;
+    });
+
+    // =========================
+    // EVENT TOMBOL "TIDAK"
+    // Tombol akan pindah posisi
+    // =========================
+    noBtn.addEventListener("mouseover", moveButton);
+    noBtn.addEventListener("click", moveButton);
+
+    function moveButton(){
+
+      // Mengambil ukuran layar
+      const maxX = window.innerWidth - 150;
+      const maxY = window.innerHeight - 100;
+
+      // Membuat posisi random
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+
+      // Memindahkan tombol
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    }
+  </script>
+
+</body>
+</html>
